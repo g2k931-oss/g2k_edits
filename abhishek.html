@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>g2k_edits</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="file_00000000a34461f8829e7332a6386349-50kb.jpeg"
+      size="64x64"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      @font-face {
+        font-family: "Vast_Shadow";
+        src: url("font/Vast_Shadow/VastShadow-Regular.ttf") format("truetype");
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "rampart_one";
+        src: url("font/Rampart_One/RampartOne-Regular.ttf") format("truetype");
+        font-weight: 400;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        background-image: url("pgnxE-ezremove.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      span {
+        display: block;
+        width: 100%;
+        font-family: "Vast_Shadow", sans-serif;
+        font-size: 15vh;
+        text-align: center;
+        color: #fbc02d;
+        text-transform: capitalize;
+        margin-top: 35vh;
+      }
+
+      #text {
+        display: flex;
+        font-size: 3.5vh;
+        color: rgb(255, 255, 255);
+        font-family: "Vast_Shadow", sans-serif;
+        margin-top: -2.5vh;
+      }
+
+      #contentbox {
+        margin-top: 2vh;
+        width: 80%;
+        height: auto;
+        min-height: 10vh;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      label {
+        display: none;
+      }
+
+      input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        width: 30vw;
+        background-color: transparent;
+        outline: none;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 35px;
+        text-align: center;
+        font-family: "Vast_Shadow", sans-serif;
+        font-size: 5vh;
+        color: azure;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+
+      input::placeholder {
+        color: white;
+        font-size: 2.5vh;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      button {
+        display: flex;
+        border: 2px solid black;
+        background-color: #fbc02d;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        width: 10vw;
+        font-family: "Vast_Shadow", sans-serif;
+        border-radius: 20px;
+        margin-top: 2vh;
+      }
+
+      @media only screen and (max-width: 600px) {
+        span {
+          font-size: 8vh;
+          margin-top: 20vh;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+
+        #text {
+          font-size: 2.5vh;
+          margin-top: 1vh;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+
+        input {
+          width: 80vw;
+          height: 7vh;
+          font-size: 3vh;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+
+        input::placeholder {
+          font-size: 2vh;
+          text-transform: uppercase;
+        }
+
+        #contentbox {
+          width: 90vw;
+          min-height: 12vh;
+          margin-top: 4vh;
+        }
+
+        button {
+          width: 50vw;
+          height: 7vh;
+          font-size: 2.5vh;
+          border-radius: 25px;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <span>thank you</span>
+    <p id="text">help this channel to grow...</p>
+    <div id="contentbox">
+      <label for="amount">amount</label>
+      <input
+        id="amount"
+        name="amount"
+        type="number"
+        placeholder="enter amount"
+      />
+      <button>pay</button>
+    </div>
+  </body>
+  <script src="abhishek.js" defer></script>
+</html>
