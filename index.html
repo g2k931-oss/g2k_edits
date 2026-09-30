@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>g2k_edits</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="file_00000000a34461f8829e7332a6386349-50kb.jpeg"
+      size="64x64"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      @font-face {
+        font-family: "Vast_Shadow";
+        src: url("font/Vast_Shadow/VastShadow-Regular.ttf") format("truetype");
+        font-weight: 400;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        background-image: url("Desktop.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      span {
+        display: block;
+        width: 100%;
+        font-family: "Vast_Shadow", sans-serif;
+        font-size: 15vh;
+        text-align: center;
+        color: #fbc02d;
+        text-transform: capitalize;
+        margin-top: 35vh;
+      }
+
+      #text {
+        display: flex;
+        font-size: 3.5vh;
+        color: rgb(255, 255, 255);
+        font-family: "Vast_Shadow", sans-serif;
+        margin-top: -2.5vh;
+      }
+
+      #contentbox {
+        margin-top: 2vh;
+        width: 80%;
+        height: auto;
+        min-height: 10vh;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      label {
+        display: none;
+      }
+
+      input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        width: 30vw;
+        background-color: transparent;
+        outline: none;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 35px;
+        text-align: center;
+        font-family: "Vast_Shadow", sans-serif;
+        font-size: 5vh;
+        color: azure;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+
+      input::placeholder {
+        color: white;
+        font-size: 2.5vh;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      button {
+        display: flex;
+        border: 2px solid black;
+        background-color: #fbc02d;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        width: 10vw;
+        font-family: "Vast_Shadow", sans-serif;
+        border-radius: 20px;
+        margin-top: 2vh;
+      }
+
+      #qr-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.72);
+      }
+
+      #qr-modal.is-visible {
+        display: flex;
+        animation: qr-backdrop-in 180ms ease-out both;
+      }
+
+      #qr-dialog {
+        position: relative;
+        width: min(92vw, 390px);
+        padding: 28px 24px 24px;
+        border: 2px solid #fbc02d;
+        border-radius: 18px;
+        background: #171717;
+        text-align: center;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+        font-family: "Vast_Shadow", sans-serif;
+      }
+
+      #qr-modal.is-visible #qr-dialog {
+        animation: qr-pop-out 280ms cubic-bezier(0.2, 0.9, 0.25, 1.25) both;
+      }
+
+      @keyframes qr-backdrop-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes qr-pop-out {
+        from {
+          opacity: 0;
+          transform: scale(0.65) translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      #qr-dialog h2 {
+        margin-bottom: 18px;
+        color: #fbc02d;
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      #qr-code {
+        display: block;
+        width: min(64vw, 250px);
+        height: min(64vw, 250px);
+        margin: 0 auto 18px;
+        padding: 10px;
+        border-radius: 8px;
+        background: white;
+      }
+
+      #qr-amount {
+        margin-bottom: 14px;
+        color: white;
+        font-size: 1.05rem;
+      }
+
+      #direct-pay {
+        width: 100%;
+        height: 52px;
+        margin-top: 0;
+        border: 2px solid #fbc02d;
+        color: #171717;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      #close-qr {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        border: 0;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+        font-family: sans-serif;
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #qr-modal.is-visible,
+        #qr-modal.is-visible #qr-dialog {
+          animation: none;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        span {
+          font-size: 8vh;
+          margin-top: 20vh;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+
+        #text {
+          font-size: 2.5vh;
+          margin-top: 1vh;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+
+        input {
+          width: 80vw;
+          height: 7vh;
+          font-size: 3vh;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+
+        input::placeholder {
+          font-size: 2vh;
+          text-transform: uppercase;
+        }
+
+        #contentbox {
+          width: 90vw;
+          min-height: 12vh;
+          margin-top: 4vh;
+        }
+
+        button {
+          width: 50vw;
+          height: 7vh;
+          font-size: 2.5vh;
+          border-radius: 25px;
+          font-family: "Vast_Shadow", sans-serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="click-sound" preload="auto">
+      <source src="Click Sound.mp3" type="audio/mpeg" />
+    </audio>
+    <span>thank you</span>
+    <p id="text">help this channel to grow...</p>
+    <div id="contentbox">
+      <label for="amount">amount</label>
+      <input
+        id="amount"
+        name="amount"
+        type="number"
+        placeholder="enter amount"
+      />
+      <button>pay</button>
+    </div>
+
+    <div id="qr-modal" role="dialog" aria-modal="true" aria-labelledby="qr-title">
+      <div id="qr-dialog">
+        <button id="close-qr" type="button" aria-label="Close QR code">&times;</button>
+        <h2 id="qr-title">Scan QR</h2>
+        <img id="qr-code" alt="UPI payment QR code" />
+        <p id="qr-amount"></p>
+        <button id="direct-pay" type="button">Pay without qr</button>
+      </div>
+    </div>
+  </body>
+  <script src="abhishek.js" defer></script>
+</html>
